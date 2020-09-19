@@ -1,4 +1,6 @@
+using MvvmCross.Platform;
 using MvvmCross.Platform.IoC;
+using XamSqrdCalc.Core.Services;
 
 namespace XamSqrdCalc.Core
 {
@@ -10,8 +12,11 @@ namespace XamSqrdCalc.Core
                 .EndingWith("Service")
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
+            
+            Mvx.ConstructAndRegisterSingleton<ISquareRootCal, SquareRootCalc>();
 
-            RegisterNavigationServiceAppStart<ViewModels.FirstViewModel>();
+            // RegisterNavigationServiceAppStart<ViewModels.FirstViewModel>();
+            RegisterNavigationServiceAppStart<ViewModels.SqrdCalcViewModel>();
         }
     }
 }
